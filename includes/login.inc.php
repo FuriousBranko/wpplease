@@ -6,12 +6,12 @@ $id=0;
 $username = mysqli_real_escape_string($conn, $_POST["username"]);
 $password = mysqli_real_escape_string($conn, $_POST["password"]);
 
-$sql = "SELECT * FROM user WHERE username = '$username'";
+$sql = "SELECT * FROM user WHERE username like '%{$username}%'";
 $result = mysqli_query($conn, $sql);
 
 if(mysqli_num_rows($result) > 0 or !password_verify($password,$result['password']))
 {
-    while($row = mysqli_fetch_array($result, MYSQLI_BOTH))
+    while($row = $result->fetch_array())//$row = mysqli_fetch_array($result, MYSQLI_BOTH))
     {
         $id = $row["id_user"];
         $power = $row["power"];
