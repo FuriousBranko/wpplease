@@ -14,7 +14,8 @@ include "includes\db_config.php";
     print_r($row);
     $loc = $row['desktop'];
     $name= $row['title'];
-            echo "<div class=\"col-4\"><img class=\"image-fluid\" src=\"./destination/$loc\" alt=\"$name\"></div>";
+            echo "<div class=\"col-4 border text-center\"><img class=\"image-fluid\" src=\"./destination/$loc\" alt=\"$name\">
+            <a href=\"download.php?file=$loc\">download</a></div>";
         }
     
     echo "</div></div>";
