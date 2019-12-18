@@ -18,13 +18,13 @@ include "db_config.php";
     $sql = "INSERT INTO user (username, password, email) values ('$username', '$password3', '$email')";
     if ($password == $password2 and $error == 0) {
         $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
-        header("location: ../login.php");
+        header("location: ../index.php");
     } elseif ($error == 1 and $password != $password2) {
-        header("Location: ../register.php?nav=3");
+        header("Location: ../index.php?nav=3");
     } elseif ($error == 1) {
-        header("Location: ../register.php?nav=1");
+        header("Location: ../index.php?nav=1");
     } elseif ($password != $password2) {
-        header("Location: ../register.php?nav=2");
+        header("Location: ../index.php?nav=2");
     }
 
 

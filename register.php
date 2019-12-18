@@ -1,7 +1,7 @@
 <?php
 include 'includes/db_config.php';
 ?>
-<html lang="en">
+<!-- <html lang="en">
 <head>
     <title>Register</title>
 </head>
@@ -20,7 +20,7 @@ include 'includes/db_config.php';
         <input type="password" class="form-control" id="password2" name="password2">
 
         <button type="submit">Register</button>
-    </form>
+    </form> -->
         <?php
         $nav = 0;
         if(isset($_GET['nav']))
@@ -38,5 +38,5 @@ include 'includes/db_config.php';
         }
         ?>
 
-</body>
-</html>
+<!-- </body>
+</html> -->

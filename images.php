@@ -1,5 +1,5 @@
 <?php
-include "includes\db_config.php";
+//include "includes\db_config.php";
 
     if(isset($_GET['search'])){
 
@@ -11,17 +11,19 @@ include "includes\db_config.php";
             
             echo "<div class=\"container\"><div class=\"row\">";
     while($row = mysqli_fetch_array($result)){
-    print_r($row);
+    
     $loc = $row['desktop'];
     $name= $row['title'];
-            echo "<div class=\"col-4 border text-center\"><img class=\"image-fluid\" src=\"./destination/$loc\" alt=\"$name\">
-            <a href=\"download.php?file=$loc\">download</a></div>";
+            echo "<div class=\"col-4 border text-center\"><img class=\"img-fluid img-thumbnail\" src=\"./destination/$loc\" alt=\"$name\">
+            <a href=\"download.php?file=$loc\">download $name</a></div>";
         }
     
     echo "</div></div>";
     }
     else{
-        echo "0 results found";
+        echo "<div class=\"container\"><div class=\"row\">";
+        echo "<div class=\"col-12 text-center\"<p>0 results found</p></div>";
+        echo "</div></div>"; 
     }
 }
     ?>
