@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
   require "includes/db_config.php";
+  require "verify.php";
   session_start();
 ?>
 <html lang="en">
@@ -56,7 +57,7 @@ else{ echo"
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type = "submit" name="submit" class="btn btn-primary">Save changes</button>
+        <button type = "submit" name="submit" class="btn btn-primary">Login</button>
       </div>
       </form>
     </div>

@@ -5,7 +5,7 @@
 
         $search = $_GET['search'];
 
-        $result= mysqli_query($conn, "SELECT * FROM wallpaper WHERE tags LIKE '%{$search}%'");
+        $result= mysqli_query($conn, "SELECT * FROM wallpaper WHERE tags = '%{$search}%'");
     
         if(mysqli_num_rows($result)>0){
             
