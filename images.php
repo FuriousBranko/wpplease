@@ -3,7 +3,7 @@
 
     if(isset($_GET['search'])){
 
-        $search = $_GET['search'];
+        $search = trim(strtolower($_GET['search']));
 
         $result= mysqli_query($conn, "SELECT * FROM wallpaper WHERE tags = '%{$search}%'");
     
