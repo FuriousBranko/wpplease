@@ -1,0 +1,22 @@
+{
+  "name": "wpplease",
+  "version": "1.0.0",
+  "description": "wpplease",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FuriousBranko/wpplease.git"
+  },
+  "author": "Branko Sabo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FuriousBranko/wpplease/issues"
+  },
+  "homepage": "https://github.com/FuriousBranko/wpplease#readme",
+  "dependencies": {
+    "@yaireo/tagify": "^3.2.6"
+  }
+}
