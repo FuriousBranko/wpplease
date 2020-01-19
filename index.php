@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
   require "includes/db_config.php";
-  //require "verify.php";
+  require "./verify.php";
   session_start();
 ?>
 <html lang="en">

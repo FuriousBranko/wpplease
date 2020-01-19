@@ -16,7 +16,8 @@ include "db_config.php";
     }
     $password3 = password_hash($password,PASSWORD_DEFAULT);
     $vkey= md5(time().$username);
-    $sql = "INSERT INTO user (username, password, email) values ('$username', '$password3', '$email')";
+    $sql = "INSERT INTO user (username, password, email, vkey) values ('$username', '$password3', '$email', '$vkey')";
+    var_dump($sql);
     if ($password == $password2 and $error == 0) {
         $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
@@ -25,9 +26,9 @@ include "db_config.php";
 
 
         $to= $email;
-        $subject= "Emal Verification";
-        $message= "<a href='http:/localhost/wpplease/index.php?vkey=$vkey'>Verify email.</a>";
-        $headers= "From: wolfplayer98@gmail.com \r\n";
+        $subject= "Email Verification";
+        $message= "<a href='http:/localhost/wpplease/index.php?vkey=$vkey'>Verify email.</a><br>index.php?vkey=$vkey";
+        $headers= "From: therealexperimentalmail@gmail.com \r\n";
         $headers .= "MIME-Version: 1.0"."\r\n";
         $headers .= "Content-type:text/html;charset=UTF-8"."\r\n";
 
