@@ -7,7 +7,7 @@ $id=0;
 $username = mysqli_real_escape_string($conn, $_POST["username"]);
 $password = mysqli_real_escape_string($conn, $_POST["password"]);
 
-$sql = "SELECT * FROM user WHERE username = '%{$username}%'";
+$sql = "SELECT * FROM user WHERE username = '$username'";
 $result = mysqli_query($conn, $sql);
 
 if(mysqli_num_rows($result) > 0 or !password_verify($password,$result['password']))

@@ -28,6 +28,7 @@ if(!isset($_SESSION['id_user'])){ echo "
 </button>";
 }
 else{ echo"
+  <a class=\"btn btn-primary\" href=\"./imageupload.php\">Upload</a>
   <a class=\"btn btn-primary\" href=\"logout.php\">Logout</a>";
 }
 ?>

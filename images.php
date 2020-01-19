@@ -5,7 +5,8 @@
         // $search = $_GET['search'];
         $search = trim(strtolower($_GET['search']));
         //var_dump($search);
-        $result= mysqli_query($conn, "SELECT * FROM `wallpaper` WHERE `tags` = '$search'");
+        //$result= mysqli_query($conn, "SELECT * FROM `wallpaper` WHERE `tags` = '$search'"); exact
+        $result= mysqli_query($conn, "SELECT * FROM `wallpaper` WHERE `tags` LIKE '$search'");//similar
         //var_dump($result);
         if(mysqli_num_rows($result)>0){
             
