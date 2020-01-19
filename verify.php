@@ -1,5 +1,5 @@
 <?php
-require "./includes/db_config.php";
+//require "./includes/db_config.php";
 if(isset($_GET['vkey'])){
     $vkey= $_GET['vkey'];
     $vkey= mysqli_real_escape_string($conn,$vkey);
