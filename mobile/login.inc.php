@@ -19,15 +19,18 @@ if(mysqli_num_rows($result) > 0 or !password_verify($password,$result['password'
         $verified = $row["verified"];
     }
     if($verified==0){
-        header("Location: ../index.php?error=666");
+        header("Location: ../index.php?error=1");
+    }
+    if($power==0){
+        header("Location: ../index.php?error=3");
     }
     $_SESSION["id_user"] = $id;
     $_SESSION["username"] = $username;
     $_SESSION["admin"] = $power;
-    header("Location: ../index.php");
+    header("Location: ./index.php");
     exit();
 }
 else {
-    header("Location: ../index.php?error=2");
+    header("Location: ./login.php?error=2");
     exit();
 }

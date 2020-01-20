@@ -1,5 +1,6 @@
 <?php
-
+session_start();
+require "./db_config.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,19 +11,13 @@
     <title>Mobile</title>
 </head>
 <body>
-    <!-- login -->
-
-
-
-    <!-- name -->
-    <!-- earning -->
-    <!-- total unique downloads -->
-    <hr>
-    <!-- img  -->
-    <!-- title  -->
-    <!-- total downloads -->
-    <!-- unique downloads -->
-    <!-- earning  -->
-<!-- repeat  -->
+    <?php
+        if(!isset($_SESSION['id_user'])){
+            require "./login.php";
+        }
+        else{
+            require "./calc.php";
+        }
+        ?>
 </body>
 </html>

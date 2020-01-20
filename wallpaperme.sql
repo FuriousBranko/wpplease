@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 19, 2020 at 04:51 PM
+-- Generation Time: Jan 20, 2020 at 01:40 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -57,8 +57,11 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `username`, `email`, `password`, `power`, `verified`, `vkey`) VALUES
-(1, 'user', 'user@user.user', '$2y$10$RPvBhcOauR4Vdp8.I9z6q.a', 0, 0, ''),
-(2, 'user2', 'user2@user.user', '$2y$10$VobQ8yzCyNGYwia1mW8X.e4', 0, 0, '');
+(1, 'user', 'user@user.user', '$2y$10$RPvBhcOauR4Vdp8.I9z6q.a', 0, 1, ''),
+(2, 'user2', 'user2@user.user', '$2y$10$VobQ8yzCyNGYwia1mW8X.e4', 0, 0, ''),
+(7, '$username', '$email', '$password3', 0, 1, '$vkey'),
+(8, '$username', '$email', '$password3', 0, 1, '$vkey'),
+(9, 'usertest2', 'wolfplayer98@gmail.com', '$2y$10$a.5n52IQBIIB8MfFnz6xNe4', 1, 1, '6da89c92bcbaa85e93a0d34075afffc3');
 
 -- --------------------------------------------------------
 
@@ -83,11 +86,12 @@ CREATE TABLE `wallpaper` (
 --
 
 INSERT INTO `wallpaper` (`id_wallpaper`, `id_user`, `title`, `downloads`, `unique_downloads`, `mobile`, `desktop`, `tags`, `verified`) VALUES
-(1, 1, 'Dog 1', '', 0, '', 'doggo1.jpg', 'dog', 0),
-(2, 1, 'Dog 2', '', 0, '', 'doggo2.jpg', 'dog', 0),
-(3, 1, 'Dog 3', '', 0, '', 'doggo3.jpg', 'dog', 0),
-(4, 1, 'Bird 1', '', 0, '', 'eagle.jpg', 'bird', 0),
-(5, 1, 'Bird 2', '', 0, '', 'og_bird.jpg', 'bird', 0);
+(1, 9, 'Dog 1', '22222', 330, '', 'doggo1.jpg', 'dog', 0),
+(2, 9, 'Dog 2', '131322', 1000, '', 'doggo2.jpg', 'dog', 0),
+(3, 9, 'Dog 3', '40', 10, '', 'doggo3.jpg', 'dog', 0),
+(4, 9, 'Bird 1', '666', 300, '', 'eagle.jpg', 'bird', 0),
+(5, 9, 'Bird 2', '10', 2, '', 'og_bird.jpg', 'bird', 0),
+(7, 9, 'Baza', '500', 400, '', '5e24d45b152797.69812149.png', 'baza', 0);
 
 --
 -- Indexes for dumped tables
@@ -127,13 +131,13 @@ ALTER TABLE `subscription`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `wallpaper`
 --
 ALTER TABLE `wallpaper`
-  MODIFY `id_wallpaper` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_wallpaper` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
