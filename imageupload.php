@@ -14,7 +14,7 @@
 <label for="tags">Add Tags:</label><br>
 <input name='tags-outside' class='tagify--outside' placeholder='write some tags'>
 
-<button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Add tags that express your image">?</button>
+<!-- <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Add tags that express your image">?</button> -->
 <!-- <p>Select upload resolution</p>
 <label for="c1">4096x2160</label>
 <input type="checkbox" name="2160" id="c1">

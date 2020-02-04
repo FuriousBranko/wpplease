@@ -1,5 +1,5 @@
 <?php
-//include "includes\db_config.php";
+// include "includes\db_config.php";
 
     if(isset($_GET['search'])){
         // $search = $_GET['search'];

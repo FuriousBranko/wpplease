@@ -153,6 +153,10 @@ else{ echo"
 </div> -->
     
     </form>
+    <!-- popular tags -->
+    <form action="index.php" method="GET">
+    <button type="submit" name="search" value="dog">Imee</button>
+    </form>
     <?php
       if(isset($_GET['search'])){
         include "images.php";
