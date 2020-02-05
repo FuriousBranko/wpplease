@@ -155,7 +155,27 @@ else{ echo"
     </form>
     <!-- popular tags -->
     <form action="index.php" method="GET">
-    <button type="submit" name="search" value="dog">Imee</button>
+    <?php
+      $result= mysqli_query($conn, "SELECT `tags` FROM `wallpaper`");
+      if(mysqli_num_rows($result)>0){
+        $i=0;
+while($row = mysqli_fetch_array($result)){
+  $loc = $row['tags'];
+  // $unq[] = $loc;
+  // for($j=0;$j<$i;$j++){
+  //   if($unq[$i]==$unq[$j]){
+      echo '<button type="submit" name="search" value="'.$loc.'">'.$loc.'</button>';
+    // }
+    // else{
+    //   $i++;
+    //   continue;
+    // }
+  // }
+    // echo '<button type="submit" name="search" value="'.$loc.'">'.$loc.'</button>';
+    // var_dump($loc);
+}
+      }
+    ?>
     </form>
     <?php
       if(isset($_GET['search'])){

@@ -17,6 +17,8 @@
     $name= $row['title'];
             echo "<div class=\"col-4 border text-center\"><img class=\"img-fluid img-thumbnail\" src=\"./destination/$loc\" alt=\"$name\">
             <a href=\"download.php?file=$loc\">download $name</a></div>";
+
+
         }
     
     echo "</div></div>";
