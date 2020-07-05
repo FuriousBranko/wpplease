@@ -30,7 +30,6 @@ if(!isset($_SESSION['id_user'])){
 }
 else{
     include "./downloads_count.php";
-    var_dump($wallpaper);
     echo"
   <a class=\"btn btn-primary\" href=\"./imageupload.php\">Upload</a>
   <a class=\"btn btn-primary\" href=\"logout.php\">Logout</a>";
@@ -168,7 +167,7 @@ while($row = mysqli_fetch_array($result)){
   // $unq[] = $loc;
   // for($j=0;$j<$i;$j++){
   //   if($unq[$i]==$unq[$j]){
-      echo '<button type="submit" name="search" value="'.$loc.'">'.$loc.'</button>';
+      //echo '<button type="submit" name="search" value="'.$loc.'">'.$loc.'</button>';
     // }
     // else{
     //   $i++;
