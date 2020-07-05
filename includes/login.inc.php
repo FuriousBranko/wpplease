@@ -9,15 +9,12 @@ $password = mysqli_real_escape_string($conn, $_POST["password"]);
 
 $sql = "SELECT * FROM user WHERE username = '$username'";
 $result = mysqli_query($conn, $sql);
-
-if(mysqli_num_rows($result) > 0 or !password_verify($password,$result['password']))
+$row = mysqli_fetch_assoc($result);
+if(mysqli_num_rows($result) > 0 && !password_verify($password,$row['password']))
 {
-    while($row = $result->fetch_array())//$row = mysqli_fetch_array($result, MYSQLI_BOTH))
-    {
-        $id = $row["id_user"];
-        $power = $row["power"];
-        $verified = $row["verified"];
-    }
+    $id = $row["id_user"];
+    $power = $row["power"];
+    $verified = $row["verified"];
     if($verified==0){
         header("Location: ../index.php?error=666");
     }

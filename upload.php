@@ -44,9 +44,9 @@ require "./watermark.php";
         }else{
             echo "wrong image format";
         }
-        var_dump($file1);
-        var_dump($title);echo "<br>";
-        var_dump($tags);
+        // var_dump($file1);
+        // var_dump($title);echo "<br>";
+        // var_dump($tags);
     }
     else{
         echo "wrong";
