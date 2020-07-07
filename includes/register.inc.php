@@ -21,22 +21,13 @@ include "db_config.php";
     if ($password == $password2 and $error == 0) {
         $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
-
-
-
-
         $to= $email;
         $subject= "Email Verification";
         $message= "<a href='http:/localhost/wpplease/index.php?vkey=$vkey'>Verify email.</a><br>index.php?vkey=$vkey";
         $headers= "From: therealexperimentalmail@gmail.com \r\n";
         $headers .= "MIME-Version: 1.0"."\r\n";
         $headers .= "Content-type:text/html;charset=UTF-8"."\r\n";
-
         mail($to,$subject,$message,$headers);
-
-
-
-
         header("location: ../index.php");
     } elseif ($error == 1 and $password != $password2) {
         header("Location: ../index.php?nav=3");
