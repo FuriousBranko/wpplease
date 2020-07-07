@@ -22,6 +22,7 @@
 <body>
 <div class="container">
 <?php
+        // var_dump($_SESSION);
 if(!isset($_SESSION['id_user'])){
     echo "
 <button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#exampleModalLong\">
@@ -121,6 +122,7 @@ else{
             case 3: echo "<span> Check username and password !</span>";
                 break;
         }
+
         ?>
       
     </div>
@@ -159,6 +161,7 @@ else{
     <!-- popular tags -->
     <form action="index.php" method="GET">
     <?php
+
       $result= mysqli_query($conn, "SELECT `tags` FROM `wallpaper`");
       if(mysqli_num_rows($result)>0){
         $i=0;
