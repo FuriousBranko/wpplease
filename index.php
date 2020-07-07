@@ -33,6 +33,7 @@ else{
     include "./downloads_count.php";
     echo"
   <a class=\"btn btn-primary\" href=\"./imageupload.php\">Upload</a>
+  <a class=\"btn btn-primary\" href=\"./listUserWallpapers.php\">My Wallpapers</a>
   <a class=\"btn btn-primary\" href=\"logout.php\">Logout</a>";
 }
 ?>
