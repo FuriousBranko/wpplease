@@ -5,7 +5,7 @@ require_once "includes/db_config.php";
 $wallpaper = [];
 
 $sql = <<<SQL
-SELECT COUNT(*) as downloads_count, ud.id_wallpaper, w.title FROM `user_downloads` as ud
+SELECT COUNT(*) as downloads_count, ud.id_wallpaper, w.title FROM user_downloads as ud
 JOIN  wallpaper as w ON ud.id_wallpaper = w.id_wallpaper
 WHERE w.id_user = {$_SESSION['id_user']} GROUP BY ud.id_wallpaper
 SQL;
