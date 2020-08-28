@@ -11,7 +11,18 @@ if(isset($_POST['update'])) {
 if (!isset($_SESSION['id_user'])) {
     header("Location: index.php?notloggedin");
 }
-    $title = mysqli_real_escape_string($conn,$_POST['title']);
+    //$title1 = $_POST['title'];
+    //$serach = "SELECT * from wallpaper where title = '$title1'";
+//    $title =mysqli_real_escape_string($conn,$serach);
+    //$query2 = mysqli_query ($conn,$serach);
+    //$row = mysqli_fetch_row($query2);
+    //$title = mysqli_real_escape_string($conn,$_POST['title']);
+    $title =  $_POST['title'];
+var_dump($_POST['title']);
+    $sql = "SELECT * FROM wallpaper WHERE title = '$title'";
+    $query = mysqli_query ($conn, $sql);
+    $result = mysqli_fetch_assoc ($query);
+
 ?>
 
 <head>
@@ -20,7 +31,7 @@ if (!isset($_SESSION['id_user'])) {
 
 <form action="upload.php" method="POST" enctype="multipart/form-data">
     <label for="title">Title:</label>
-    <input type="text" name="title" id="title" placeholder="Title" required value="<?php echo $title ?>"><br><br>
+    <input type="text" name="title" id="title" placeholder="Title" required value="<?= $result['title'] ?>"><br><br>
     <label for="tags">Add Tags:</label><br>
     <input name='tags-outside' class='tagify--outside' placeholder='write some tags'>
     <!-- <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Add tags that express your image">?</button> -->

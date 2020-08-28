@@ -42,24 +42,32 @@ session_start();
   <a class=\"btn btn-primary\" href=\"logout.php\">Logout</a>";
     }
     $user = $_SESSION['id_user'];
+
+
     $sql = "SELECT * FROM wallpaper w JOIN user u ON w.id_user = u.id_user WHERE w.id_user = '$user' ORDER BY id_wallpaper DESC ";
     $query = mysqli_query ($conn,$sql);
-    while($result = mysqli_fetch_assoc($query)){
+    while($result = mysqli_fetch_assoc($query)) {
         $name = $result['desktop'];
-        $altName = explode (".",$name);             // izracunavanje broja downloada
-        $sql2 ="SELECT COUNT(*) as downloads_count FROM user_downloads as ud            
-            JOIN  wallpaper as w ON ud.id_wallpaper = w.id_wallpaper
-            WHERE w.id_user = {$result['id_user']} GROUP BY ud.id_wallpaper";
-        $query2 = mysqli_query ($conn,$sql2);
+        $altName = explode(".", $name);             // izracunavanje broja downloada
+//        $sql2 = "SELECT COUNT(*) as downloads_count FROM user_downloads as ud
+//            JOIN  wallpaper as w ON ud.id_wallpaper = w.id_wallpaper
+//            WHERE w.id_user = {$result['id_user']} GROUP BY ud.id_wallpaper";
+        $sql2 = "SELECT COUNT(*) as downloads_count, ud.id_wallpaper, w.title 
+        FROM user_downloads as ud
+        JOIN  wallpaper as w ON ud.id_wallpaper = w.id_wallpaper
+        WHERE w.id_user = {$_SESSION['id_user']} AND w.id_wallpaper = {$result['id_wallpaper']} GROUP BY ud.id_wallpaper";
+        $query2 = mysqli_query($conn, $sql2);
+
         $row = mysqli_fetch_row($query2);
-        echo"
+
+        echo "
      <div class=\"row\">
         <div class=\"col-sm-4 col-md-12 col-lg-4\">
             <form method=\"post\" action=\"updateUserWallpapers.php\">
                 <img src=\"images/{$result['desktop']}\" alt=\"$altName[0]\" width=\"332\" height=\"332\"><br>
         </div>
         <div class=\"col-sm-8 col-md-6 col-lg-8\">
-                <input type='hidden' name='title' value=\"{result['title']\"><strong>Title: </strong>{$result['title']}<br>
+                <input type='hidden' name='title' value='{$result['title']}'><strong>Title: </strong>{$result['title']}<br>
                 <strong>Uploader: </strong>{$result['username']}<br>
                 <strong>Number of downloads: </strong>{$row[0]}<br>
                 <input type=\"hidden\" name=\"id\" value=\"{$result['id_wallpaper']}\" >
