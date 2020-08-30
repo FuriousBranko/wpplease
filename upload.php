@@ -21,8 +21,7 @@ require "./watermark.php";
 
         $title= mysqli_real_escape_string($conn,ucfirst(strtolower($_POST['title'])));
         $tags= $_POST['tags-outside'];
-        $tags= str_replace('[{"value":"','',$tags);
-        $tags= str_replace('"}]','',$tags);
+        $tags= implode(" ", json_decode($tags));
 
         $fileEXT= explode('.',$file2name);
         $fileactEXT= strtolower(end($fileEXT));
