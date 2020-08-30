@@ -13,14 +13,16 @@
             echo "<div class=\"container\"><div class=\"row\">";
     while($row = mysqli_fetch_array($result)){
     
-    $loc = $row['desktop'];
-    $name= $row['title'];
-        echo "<div class=\"col-4 border text-center\"><img class=\"img-fluid img-thumbnail\" src=\"./destination/$loc\" alt=\"$name\">";
-        if (isset($_SESSION['id_user']) && $_SESSION['sub'] == 1) {
-            echo "<a href=\"download.php?file=$loc\" class=\"track_click\" data-user-id=".$_SESSION['id_user']." data-wallpaper-id=".$row['id_wallpaper'].">download $name</a>";
+        $loc = $row['desktop'];
+        $name= $row['title'];
+        // $v = $row['verified'];
+        if ($row['verified']){
+            echo "<div class=\"col-4 border text-center\"><img class=\"img-fluid img-thumbnail\" src=\"./destination/$loc\" alt=\"$name\">";
+            if (isset($_SESSION['id_user']) && $_SESSION['sub'] == 1) {
+                echo "<a href=\"download.php?file=$loc\" class=\"track_click\" data-user-id=".$_SESSION['id_user']." data-wallpaper-id=".$row['id_wallpaper'].">download $name</a>";
+            }
+            echo "</div>";
         }
-        echo "</div>";
-
         }
     
     echo "</div></div>";
