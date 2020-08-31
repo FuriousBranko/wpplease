@@ -31,6 +31,6 @@ if(mysqli_num_rows($result) > 0 or !password_verify($password,$result['password'
     exit();
 }
 else {
-    header("Location: ./login.php?error=2");
+    header("Location: ./index.php?error=2");
     exit();
 }
