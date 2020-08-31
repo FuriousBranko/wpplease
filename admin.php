@@ -1,6 +1,14 @@
 <?php
   require "includes/db_config.php";
-  session_start();
+session_start();
+if (isset($_SESSION['admin'])) {
+    if($_SESSION['admin'] == 0 || $_SESSION['admin'] == 1) {
+        header("Location: index.php");
+    }
+} else {
+    header("Location: index.php");
+}
+
   ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -71,7 +79,7 @@ if (isset($_GET['tile'])) {
                 echo"
                 <div class=\"col-4 border text-center\">
                 <p>$title</p>
-                <img class=\"img-fluid img-thumbnail\" src=\"./images/$file.jpg\" alt=\"$title\">";
+                <img class=\"img-fluid img-thumbnail\" src=\"./images/$file\" alt=\"$title\">";
                 if (!$v){
                     echo "<form action=\"updateWP.php\" method=\"POST\">";
                     echo"<button type=\"submit\" class=\"button\" name=\"verify\" value=\"{$id}\">Verify</button></form>";

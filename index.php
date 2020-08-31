@@ -3,6 +3,7 @@
   require "includes/db_config.php";
   require "./verify.php";
   session_start();
+  $result=0;
 ?>
 <html lang="en">
 <head>
@@ -163,24 +164,26 @@ else{
     <form action="index.php" method="GET">
     <?php
 
-      $result= mysqli_query($conn, "SELECT `tags` FROM `wallpaper`");
-      if(mysqli_num_rows($result)>0){
-        $i=0;
-while($row = mysqli_fetch_array($result)){
-  $loc = $row['tags'];
-  // $unq[] = $loc;
-  // for($j=0;$j<$i;$j++){
-  //   if($unq[$i]==$unq[$j]){
-      //echo '<button type="submit" name="search" value="'.$loc.'">'.$loc.'</button>';
-    // }
-    // else{
-    //   $i++;
-    //   continue;
-    // }
-  // }
-    // echo '<button type="submit" name="search" value="'.$loc.'">'.$loc.'</button>';
-    // var_dump($loc);
-}
+      //$result= mysqli_query($conn, "SELECT `tags` FROM `wallpaper`");
+    if($result){
+      if(mysqli_num_rows($result)>0) {
+          $i = 0;
+          while ($row = mysqli_fetch_array($result)) {
+              $loc = $row['tags'];
+              // $unq[] = $loc;
+              // for($j=0;$j<$i;$j++){
+              //   if($unq[$i]==$unq[$j]){
+              //echo '<button type="submit" name="search" value="'.$loc.'">'.$loc.'</button>';
+              // }
+              // else{
+              //   $i++;
+              //   continue;
+              // }
+              // }
+              // echo '<button type="submit" name="search" value="'.$loc.'">'.$loc.'</button>';
+              // var_dump($loc);
+          }
+      }
       }
     ?>
     </form>
