@@ -21,7 +21,7 @@ $ATMearn = $earn - $a;
             <div class=\"section-heading\">
               <span>WPP Wallet</span>
               <h2>$username</h2>
-              <p>Total downloads: $total</p>
+              <p>Total downloads: $total</p
               <p>Total unique downloads: $unique</p>
               <h4> Earnings </h4>
               <p>$$ATMearn</p>

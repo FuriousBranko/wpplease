@@ -21,7 +21,7 @@ $sy = imagesy($watermark);
     
 
     imagecopy($img, $watermark, imagesx($img)-$sx-$margin_right, imagesy($img)-$sy-$margine_bottom,0,0,$sx,$sy);
-    $i = imagepng($img, $destination.'/'.$name, 100);
+    $i = imagejpeg($img, $destination.'/'.$name, 100);
     imagedestroy($img);
 //}
 header("Location: index.php?watermarked");

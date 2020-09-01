@@ -17,6 +17,6 @@ $cash = $_GET['earnings'];
         $headers .= "MIME-Version: 1.0"."\r\n";
         $headers .= "Content-type:text/html;charset=UTF-8"."\r\n";
         mail($to,$subject,$message,$headers);
-        $sql = "UPDATE user SET cashedout = {$cash} WHERE id_user = {$id}";
+        $sql = "UPDATE user SET cashedout = {$cash} WHERE id_user = {$result2['id_user']}";
         $result = mysqli_query($conn, $sql);
         header("Location: index.php");

@@ -1,5 +1,6 @@
 <?php
-    if(isset($_GET['file'])) {
+    session_start();
+if(isset($_GET['file']) && isset($_SESSION['id_user'])) {
         $file = $_GET['file'];
         $filepath = "images/" . $file ;
         if(file_exists($filepath)){

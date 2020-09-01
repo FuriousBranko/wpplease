@@ -1,8 +1,11 @@
 <?php
+session_start();
 require "./includes/db_config.php";
 require "./watermark.php";
+
     if(isset($_POST['submit'])
     ){
+        $tagsSend= "";
         $file1 = $file2 = $file3 = "nothing";
         //1440
         // $file1 = $_FILES['2160'];                            
@@ -21,8 +24,16 @@ require "./watermark.php";
 
         $title= mysqli_real_escape_string($conn,ucfirst(strtolower($_POST['title'])));
         $tags= $_POST['tags-outside'];
-        $tags= implode(" ", json_decode($tags));
-
+        //var_dump (json_decode($tags,1));
+        $tags= json_decode($tags,1);
+        var_dump($tags);
+       $count  = count($tags);
+        //var_dump($tags);
+        for($i = 0;$i<$count;$i++){
+            var_dump($tags);
+            $tags= implode(" ", $tags[$i]);
+        }
+        
         $fileEXT= explode('.',$file2name);
         $fileactEXT= strtolower(end($fileEXT));
         $allowed= array('jpg','jpeg','png');
@@ -31,8 +42,8 @@ require "./watermark.php";
                 $file2namenew= uniqid('',true).".".$fileactEXT;
                 $file2dest= "./images/".$file2namenew;
                 move_uploaded_file($file2tmplocation,$file2dest);
-                
-                $sql= "INSERT INTO wallpaper (id_user, title, desktop, tags) values ( '1', '$title', '$file2namenew', '$tags')";
+                //$id_user = $_SESSION('id_user');
+                $sql= "INSERT INTO wallpaper (id_user, title, desktop, tags) values ( 9, '$title', '$file2namenew', '$tags')";
                 $result= mysqli_query($conn,$sql);
                 watermark($file2namenew, $fileactEXT);
                 //header("Location: index.php");

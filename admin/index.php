@@ -1,7 +1,7 @@
 <?php require "../includes/db_config.php" ;
 session_start();
 if (isset($_SESSION['admin'])) {
-    if($_SESSION['admin'] == 0 || $_SESSION['admin'] == 1) {
+    if($_SESSION['admin'] == 0) {
         header("Location: ../index.php");
     }
 } else {
@@ -12,7 +12,7 @@ if (isset($_SESSION['admin'])) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
+    <meta name="viewport">
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <title>Admin</title>
