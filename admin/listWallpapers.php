@@ -1,12 +1,13 @@
 <?php
 require "../includes/db_config.php";
-//if (isset($_SESSION['admin'])) {
-//    if(($_SESSION['admin'] == 0) or ($_SESSION['admin'] == 1)) {
-//       header("Location: ../index.php");
-//    }
-//} else {
-//    header("Location: ../index.php");
-//}
+session_start();
+if (isset($_SESSION['admin'])) {
+    if(($_SESSION['admin'] == 0) or ($_SESSION['admin'] == 1)) {
+       header("Location: ../index.php");
+    }
+} else {
+    header("Location: ../index.php");
+}
 $sql = "SELECT * FROM wallpaper w JOIN user u ON w.id_user = u.id_user ORDER BY id_wallpaper DESC ";
 $query = mysqli_query ($conn,$sql);
 ?>
@@ -32,8 +33,18 @@ $query = mysqli_query ($conn,$sql);
         </li>
     </ul>
 </nav>
+
 <div class="container mt-5">
     <?php
+
+//    while($result = mysqli_fetch_assoc($query)){
+//        $name = $result['desktop'];
+//        $altName = explode (".",$name);             // izracunavanje broja downloada
+//        $sql2 ="SELECT COUNT(*) as downloads_count FROM user_downloads as ud
+//            JOIN  wallpaper as w ON ud.id_wallpaper = w.id_wallpaper
+//            WHERE w.id_user = {$result['id_user']} GROUP BY ud.id_wallpaper";
+//        $query2 = mysqli_query ($conn,$sql2);
+//        $row = mysqli_fetch_row($query2);
     while($result = mysqli_fetch_assoc($query)){
         $name = $result['desktop'];
         $altName = explode (".",$name);             // izracunavanje broja downloada
